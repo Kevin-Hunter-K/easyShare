@@ -16,6 +16,8 @@
 
 ![输入图片说明](uploadReadmeImage/202206020114253.gif)
 
+## 数据库实体E-R图
+![输入图片说明](uploadReadmeImage/202206020114333.gif)
 
 ## 已上线小程序二维码
 ![输入图片说明](uploadReadmeImage/gh_39da1a50363a_258.jpg)
