@@ -1,0 +1,71 @@
+<view wx:if="{{!hasLogin}}">
+    <view class="input_container">
+        <view class="item">
+            <input type="text" value="{{ID}}" bindinput="getID" maxlength="20" placeholder=" 请输入账号"></input>
+            <icon wx:if="{{ID.length > 0}}" bindtap="deleID" type="clear" size="23" color="#DCDCDC"></icon>
+        </view>
+        <view class="item">
+            <input type="text" password="true" value="{{passWord}}" bindinput="getPassword" maxlength="20" placeholder=" 请输入密码"></input>
+            <icon wx:if="{{passWord.length > 0}}" bindtap="delePassWord" type="clear" size="23" color="#DCDCDC"></icon>
+        </view>
+    </view>
+    <view class="login_container">
+        <button class="login" bindtap="login">管理员登录</button>
+    </view>
+</view>
+<!-- 管理员页面开始 -->
+<view class="container" wx:if="{{hasLogin}}">
+    <view class="info">
+        <image class="img" mode="widthFix" src="../../image/admin.png"></image>
+        <view class="name_container">
+            <view class="name">管理员昵称：{{adminInfo.name}}</view>
+            <view class="ID">备注: {{adminInfo.ps}}</view>
+        </view>
+    </view>
+    <view class="fun">
+        <view class="item" bindtap="checkArticle">
+            <image src="../../image/check_article.png" mode="heightFix"></image>
+            <view class="con">审核帖子</view>
+        </view>
+        <view class="item" bindtap="checkComment">
+            <image src="../../image/check_comment.png" mode="heightFix"></image>
+            <view class="con">审核评论</view>
+        </view>
+        <view class="item" bindtap="checkResource">
+            <image src="../../image/check_resource.png" mode="heightFix"></image>
+            <view class="con">审核资源</view>
+        </view>
+    </view>
+    <view class="detail">
+        <view class="detail_item" wx:if="{{adminInfo.isSeniorAdmin}}">
+            <view class="title">是否展示真实页面：</view>
+            <!-- 开关按钮 -->
+            <switch checked="{{isReal}}" class="content" bindchange="changeIsReal"></switch>
+        </view>
+        <view class="detail_item" wx:if="{{adminInfo.isSeniorAdmin}}">
+            <view class="title">是否自动清除用户缓存:</view>
+            <switch checked="{{isDeleCaChe}}" class="content" bindchange="changeIsDeleCaChe"></switch>
+        </view>
+        <view class="detail_item" wx:if="{{adminInfo.isSeniorAdmin}}">
+            <view class="title">是否自动清除管理员登录缓存:</view>
+            <switch checked="{{isDeleAdminCaChe}}" class="content" bindchange="changeIsDeleAdminCaChe"></switch>
+        </view>
+        <view class="detail_item" wx:if="{{adminInfo.isSeniorAdmin}}">
+            <view class="title">是否自动通过帖子审核:</view>
+            <switch checked="{{isArticlePass}}" class="content" bindchange="changeIsArticlePass"></switch>
+        </view>
+        <view class="detail_item" wx:if="{{adminInfo.isSeniorAdmin}}">
+            <view class="title">是否自动通过评论审核:</view>
+            <switch checked="{{isCommentPass}}" class="content" bindchange="changeIsCommentPass"></switch>
+        </view>
+        <view class="detail_item" wx:if="{{adminInfo.isSeniorAdmin}}">
+            <view class="title">是否自动通过资源审核:</view>
+            <switch checked="{{isResourcePass}}" class="content" bindchange="changeIsResourcePass"></switch>
+        </view>
+        <view class="detail_item">
+            <view class="title">退出管理员登录:</view>
+            <switch checked="{{false}}" class="content" bindchange="out"></switch>
+        </view>
+    </view>
+</view>
+<!-- 管理员页面结束 -->

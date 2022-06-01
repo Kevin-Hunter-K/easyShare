@@ -1,0 +1,213 @@
+page {
+  height: 100%;
+  width: 100%;
+}
+
+.cantainer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.cantainer .top {
+  height: 35%;
+  display: flex;
+  background-color:#F8F8FF;
+}
+
+.cantainer .top .left {
+  flex: 3;
+  height: 100%;
+}
+
+.cantainer .top .left .info_cantainer {
+  display: flex;
+  height:45%;
+}
+
+.cantainer .top .left .info_cantainer .info {
+  display: flex;
+  height: 200rpx;
+  width: 100%;
+  padding: 60rpx 0 0 60rpx;
+}
+
+.cantainer .top .left .info_cantainer .info .img {
+  border-radius: 70rpx;
+  height: 140rpx;
+  width: 140rpx;
+}
+
+.cantainer .top .left .info_cantainer .info .name {
+  margin-left: 30rpx;
+  padding-top: 20rpx;
+  width: 200rpx;
+  height: 100%;
+  font-weight: bolder;
+  font-size: 35rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.cantainer .top .left .info_cantainer .info .set {
+  height: 60rpx;
+  width: 60rpx;
+  margin-left: 30rpx;
+}
+
+.cantainer .top .left .item_cantainer {
+  display: flex;
+  height: 50%;
+  width: 100%;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+
+.cantainer .top .left .item_cantainer .item {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 50%;
+  width: 70rpx;
+}
+
+.cantainer .top .left .item_cantainer .item .img_can {
+  width: 100%;
+}
+
+.cantainer .top .left .item_cantainer .item .img_can .item_img {
+  width: 100%;
+}
+
+.cantainer .top .left .item_cantainer .item .img_name_can {
+  height: 20rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22rpx;
+  margin-top: 15rpx;
+}
+
+.cantainer .top .right {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content:flex-end;
+}
+
+.cantainer .top .right .item {
+  height: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cantainer .top .right .item .item_img_cantainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cantainer .top .right .item .item_img_cantainer .item_img {
+  width: 80rpx;
+}
+
+.cantainer .top .right .item .item_name {
+  margin-top: 30rpx;
+  font-size: 25rpx;
+  font-weight: bolder;
+}
+
+
+
+.cantainer .middle {
+  margin-top: 40rpx;
+  /* background-color: #ccc; */
+  height: 40%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.cantainer .button_item {
+  width: 90%;
+  height: 90rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFFFFF;
+  overflow: hidden;
+  /* border-color: 5rpx solid tomato;
+  background-color: red; */
+  /* border-bottom: 2rpx solid #ccc; */
+  margin-bottom: 10rpx;
+}
+
+.cantainer .contacButtonView {
+  display: flex;
+  height: 100%;
+  /* justify-content: center; */
+  align-items: center;
+  color: #333;
+}
+
+.cantainer .tip {
+  /* float: left; */
+  margin-left: 70rpx;
+  color: #000;
+  font-size: 30rpx;
+}
+
+.cantainer .sign {
+  float: right;
+  color: #000;
+  position: absolute;
+  right: 40rpx;
+}
+
+
+
+.cantainer .contacButton {
+  background-color: #FFF;
+  padding: 0;
+  margin: 0;
+  font-size: inherit;
+  width: 100%;
+  height: 100%;
+}
+
+.cantainer .contacButton::after {
+  border: 0;
+}
+
+
+.cantainer .bottom{
+  color: 	#808080;
+  font-size: 20rpx;
+  position: absolute;
+  bottom: 15rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.cantainer .user_aggrement{
+  color:		#6495ED;
+  font-size: 22rpx;
+  font-weight: bolder;
+  position: absolute;
+  bottom: 50rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}

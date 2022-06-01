@@ -1,0 +1,168 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "资源",
+          "pathName": "pages/resource/resource",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "社区",
+          "pathName": "pages/social/social",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "发布",
+          "pathName": "pages/publish/publish",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "资源分享",
+          "pathName": "pages/publish_resource/publish_resource",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "测试",
+          "pathName": "pages/test/test",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "帖子详情",
+          "pathName": "pages/articleDetail/articleDetail",
+          "query": "_id=859059a5617827c9023eb3505b107f0f",
+          "scene": null
+        },
+        {
+          "name": "我的",
+          "pathName": "pages/my/my",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "通知",
+          "pathName": "pages/inform/inform",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "我的动态",
+          "pathName": "pages/user_share/user_share",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "我的足迹",
+          "pathName": "pages/user_footstep/user_footstep",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "我的收藏",
+          "pathName": "pages/user_collection/user_collection",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "搜索",
+          "pathName": "pages/search/search",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "易班登录",
+          "pathName": "pages/yiban/yiban",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "易班隐私",
+          "pathName": "pages/yiban_privacy/yiban_privacy",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "易班服务协议",
+          "pathName": "pages/yiban_serve/yiban_serve",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "用户协议",
+          "pathName": "pages/user_agreement/user_agreement",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "关于",
+          "pathName": "pages/about_us/about_us",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "文字",
+          "pathName": "pages/publish_text/publish_text",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "视频",
+          "pathName": "pages/publish_video/publish_video",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "管理员登录",
+          "pathName": "pages/admin/admin",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "关于我们",
+          "pathName": "pages/about_us/about_us",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "发文字帖子",
+          "pathName": "pages/publish_text/publish_text",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "帖子审核",
+          "pathName": "pages/check_article/check_article",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "评论审核",
+          "pathName": "pages/check_comment/check_comment",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "资源审核",
+          "pathName": "pages/check_resource/check_resource",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

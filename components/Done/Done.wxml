@@ -1,0 +1,3 @@
+<view class="done_cantainer">
+    <view class="done" bindtap="handleDone">发布</view>
+</view>

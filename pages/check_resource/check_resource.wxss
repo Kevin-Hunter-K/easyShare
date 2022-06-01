@@ -1,0 +1,94 @@
+.resource_cantainer {
+  width: 100%;
+}
+.resource_cantainer .resource_item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10rpx;
+  height: 180rpx;
+}
+.resource_cantainer .resource_item .left {
+  height: 180rpx;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 1%;
+  margin-right: 3%;
+}
+.resource_cantainer .resource_item .right {
+  height: 180rpx;
+  flex: 4;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 20rpx;
+}
+.resource_cantainer .resource_item .right .item_name {
+  height: 80rpx;
+  font-size: 30rpx;
+  width: 75vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.resource_cantainer .resource_item .right .item_size {
+  height: 50rpx;
+  font-size: 24rpx;
+  color: var(--themecolor);
+  display: flex;
+  align-items: flex-end;
+}
+.resource_cantainer .resource_item .right .show {
+  width: 100%;
+  height: 50rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.resource_cantainer .resource_item .right .show .time {
+  flex: 5;
+  display: flex;
+  justify-content: flex-start;
+  padding-right: 30rpx;
+  align-items: center;
+  height: 20rpx;
+}
+.resource_cantainer .resource_item .right .show .time image {
+  height: 100%;
+}
+.resource_cantainer .resource_item .right .show .time .num {
+  display: flex;
+  margin-left: 10rpx;
+  justify-content: center;
+  align-items: center;
+  color: var(--themecolor);
+  font-size: 24rpx;
+}
+.resource_cantainer .tip {
+  display: flex;
+  width: 100vw;
+  height: 80rpx;
+  justify-content: space-around;
+}
+.resource_cantainer .tip .item_container {
+  display: flex;
+  height: 80rpx;
+  width: calc((100vw - 50rpx) / 3);
+  align-items: center;
+  justify-content: center;
+}
+.resource_cantainer .tip .item_container image {
+  height: 50rpx;
+  margin-right: 20rpx;
+}
+.resource_cantainer .tip .item_container .word {
+  display: flex;
+  align-items: center;
+  font-weight: bolder;
+  height: 50rpx;
+  font-size: 30rpx;
+}

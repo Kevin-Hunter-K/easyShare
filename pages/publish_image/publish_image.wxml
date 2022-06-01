@@ -1,0 +1,76 @@
+<!-- 整个容器开始 -->
+<view class="cantainer" wx:if="{{isReal}}">
+    <!-- 输入标题的容器开始 -->
+    <view class="title_cantainer">
+        <!-- 红点开始 -->
+        <view class="redPoint">*</view>
+        <!-- 红点结束 -->
+        <!-- 输入标题开始 -->
+        <input type="text" bindinput="sigleInput" maxlength="100" placeholder="请输入帖子标题"></input>
+        <!-- 输入标题结束 -->
+    </view>
+    <!-- 输入标题的容器结束 -->
+    <!-- 内容容器开始 --> 
+    <view class="content">
+        <!-- 多行输入框开始 -->
+        <textarea bindinput="multiInput" maxlength='-1' placeholder="请输入帖子内容..."></textarea>
+        <!-- 多行输入框结束 -->
+        <!-- 自定义组件开始 -->
+        <view class="resource">
+            <!-- 左边按钮容器开始 -->
+            <view class="left">
+                <!-- 按钮 -->
+                <button bindtap="chooseImage">+</button>
+            </view>
+            <!-- 左边按钮容器结束 -->
+            <!-- 右边图片的容器开始 -->
+            <view class="right">
+                <!-- 滑动器开始 -->
+                <scroll-view class="srcoll" scroll-with-animation="true" scroll-x="ture" style="width:100%">
+                    <!-- 每一项的容器开始 -->
+                    <view class="item_cantainer" wx:for="{{imageInfo}}" wx:key="*this">
+                        <!-- 每一项开始 -->
+                        <view class="item">
+                            <!-- 图片开始 -->
+                            <image src="{{item}}" mode="scaleToFill" bindtap="previewImage" data-index='{{index}}'></image>
+                            <!-- 图片结束 -->
+                            <!-- 图标容器开始 -->
+                            <view class="icon_cantainer">
+                                <!-- 删除的图标 -->
+                                <icon type="clear" color="red" bindtap="deleImage" data-index="{{index}}"></icon>
+                            </view>
+                            <!-- 图标容器结束 -->
+                        </view>
+                        <!-- 每一项结束 -->
+                    </view>
+                    <!-- 每一项的容器结束 -->
+                </scroll-view>
+                <!-- 滑动器结束 -->
+            </view>
+            <!-- 右边图片的容器开始 -->
+        </view>
+        <!-- 自定义组件结束 -->
+    </view>
+    <!-- 内容容器结束 -->
+    <!-- 滚动选择器容器开始 -->
+    <view class="picker_cantainer">
+        <!-- 左边文字开始 -->
+        <view class="hint">所属分区</view>
+        <!-- 左边文字结束 -->
+        <!-- 红点开始 -->
+        <view class="redPoint">*</view>
+        <!-- 红点结束 -->
+        <!-- 选择器开始 -->
+        <picker class="picker_item" bindchange="bindPickerChange" value="{{leftIndex}}" range="{{leftMenu}}">
+            <view class="picker_content">{{leftMenu[leftIndex]}} ></view>
+        </picker>
+        <!-- 选择器结束 -->
+    </view>
+    <!-- 滚动选择器容器结束 -->
+    <!-- 发布组件开始 -->
+    <view class="publish">
+        <Done bindDone="deal"></Done>
+    </view>
+    <!-- 发布组件结束 -->
+</view>
+<!-- 整个容器结束 -->

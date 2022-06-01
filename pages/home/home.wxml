@@ -1,0 +1,267 @@
+<wxs src="../../utils/slice.wxs" module="tools" />
+<!-- 引入slice.wxs -->
+<view class="cantainer">
+  <image class="img" src="../../image/up.png" mode="widthFix" bindtap="up" wx:if="{{isShowUpImage && isReal}}"></image>
+  <!-- 搜索框 pageUrl 为传到子组件的参数 -->
+  <Search pageUrl="/pages/search/search"></Search>
+  <!-- 轮播图开始 -->
+  <view class="index_swiper">
+    <swiper autoplay="true" indicator-dots="true " circular="true" interval="2000">
+      <!-- 轮播项 -->
+      <swiper-item wx:for="{{swiperList}}" wx:key="_id">
+        <!-- 还差图片跳转的链接，后面再添加 -->
+        <view class="navi" bindtap="gotoImageDetail" data-url="{{item.url}}">
+          <!-- 跳转的超链接 bindtap="gotoImageDetail" data-url="{{item.url}}" -->
+          <image mode="widthFix" src="{{item.imageUrl}}"></image>
+          <!-- 轮播项的图片 -->
+        </view>
+      </swiper-item>
+    </swiper>
+  </view>
+  <!-- 轮播图结束 -->
+  <!-- 分类栏开始 判断是否显示真实页面 -->
+  <Tabs tabList="{{tabList}}" binditemChange="itemChange" wx:if="{{isReal}}">
+    <!-- 1.最新 -->
+    <block wx:if="{{tabList[0].isActive}}">
+      <view wx:if="{{newArticleList.length === 0}}" style="width:100%; height:100%; display:flex; flex-wrap:wrap; justify-content: center;align-items: center;">
+        <image mode="widthFix" src="../../image/noData.jpeg" style="width:50%;"></image>
+        <view style=" margin-top:30rpx;width:100%;height:100rpx; display:flex; justify-content: center;align-items: center; font-size:40rpx; font-weight: bolder; color:#ccc;">
+          暂无数据
+        </view>
+      </view>
+      <!-- 帖子容器开始 -->
+      <view class="container">
+        <!-- 每一项文章开始 -->
+        <view class="article_item" wx:for="{{newArticleList}}" wx:key="_id">
+          <!-- 分隔栏开始 -->
+          <view class="lan" style="width:100vw; height:15rpx; background-color: #F5F5F5;"></view>
+          <!-- 分隔栏结束 -->
+          <view bindtap="hitArticle" data-id="{{item._id}}">
+            <!-- 信息容器开始 -->
+            <view class="info_container">
+              <!-- 头像容器开始 -->
+              <view class="user_img_container">
+                <image mode="heightFix" src="{{item.publisherImageUrl}}"></image>
+              </view>
+              <!-- 头像容器结束 -->
+              <!-- 名字、时间容器开始 -->
+              <view class="user_container">
+                <!-- 用户名称 -->
+                <view class="user_name">{{item.publisherName}}</view>
+                <!-- 发布时间 -->
+                <view class="time">{{item.time}}</view>
+              </view>
+              <!-- 名字、时间容器结束 -->
+            </view>
+            <!-- 信息容器结束 -->
+            <view class="content">{{item.content}}</view>
+          </view>
+          <!-- 图片开始 -->
+          <view class="img_container" wx:if="{{item.imgOrVideoFlag === 1}}">
+            <image class="img_1" bindtap="previewImage" data-images="{{item.imageList}}" data-index='{{img_index}}' style=" height: 200rpx;" wx:if="{{item.imageList.length <= 2}}" wx:for="{{item.imageList}}" wx:key="*this" wx:for-item="img_item" wx:for-index="img_index" mode="aspectFill" src="{{img_item}}"></image>
+            <image class="img_2" bindtap="previewImage" data-images="{{item.imageList}}" data-index='{{img_index}}' style=" height: 200rpx;" wx:if="{{item.imageList.length >= 3 && img_index <= 2}}" wx:for="{{item.imageList}}" wx:key="*this" wx:for-item="img_item" wx:for-index="img_index" mode="aspectFill" src="{{img_item}}"></image>
+          </view>
+          <!-- 图片结束 -->
+          <!-- 视频开始 -->
+          <view class="video_container" wx:if="{{item.imgOrVideoFlag === -1}}">
+            <video src="{{item.videoUrl}}" object-fit="cover"></video>
+          </view>
+          <!-- 视频结束 -->
+          <!-- 点击栏开始 -->
+          <view class="tip" bindtap="hitArticle" data-id="{{item._id}}">
+            <!-- 分享开始 -->
+            <view class="item_container">
+              <image mode="heightFix" src="../../image/hit_share.png"></image>
+              <view class="word">分享</view>
+            </view>
+            <view class="item_container">
+              <image mode="heightFix" src="../../image/hit_comment.png"></image>
+              <view class="word">评论</view>
+            </view>
+            <view class="item_container">
+              <image mode="heightFix" src="../../image/hit_like.png"></image>
+              <view class="word">{{item.likeNum}}</view>
+            </view>
+            <!-- 分享结束 -->
+          </view>
+          <!-- 点击栏结束 -->
+        </view>
+        <!-- 每一项文章结束 -->
+      </view>
+      <!-- 帖子容器结束 -->
+    </block>
+    <!-- 1.最新 -->
+    <!-- 2.热门 -->
+    <block wx:elif="{{tabList[1].isActive}}">
+      <view wx:if="{{hotArticleList.length === 0}}" style="width:100%; height:100%; display:flex; flex-wrap:wrap; justify-content: center;align-items: center;">
+        <image mode="widthFix" src="../../image/noData.jpeg" style="width:50%;"></image>
+        <view style=" margin-top:30rpx;width:100%;height:100rpx; display:flex; justify-content: center;align-items: center; font-size:40rpx; font-weight: bolder; color:#ccc;">
+          暂无数据
+        </view>
+      </view>
+      <!-- 帖子容器开始 -->
+      <view class="container">
+        <!-- 每一项文章开始 -->
+        <view class="article_item" wx:for="{{hotArticleList}}" wx:key="_id">
+          <!-- 分隔栏开始 -->
+          <view class="lan" style="width:100vw; height:15rpx; background-color: #F5F5F5;"></view>
+          <!-- 分隔栏结束 -->
+          <view bindtap="hitArticle" data-id="{{item._id}}">
+            <!-- 信息容器开始 -->
+            <view class="info_container">
+              <!-- 头像容器开始 -->
+              <view class="user_img_container">
+                <image mode="heightFix" src="{{item.publisherImageUrl}}"></image>
+              </view>
+              <!-- 头像容器结束 -->
+              <!-- 名字、时间容器开始 -->
+              <view class="user_container">
+                <!-- 用户名称 -->
+                <view class="user_name">{{item.publisherName}}</view>
+                <!-- 发布时间 -->
+                <view class="time">{{item.time}}</view>
+              </view>
+              <!-- 名字、时间容器结束 -->
+            </view>
+            <!-- 信息容器结束 -->
+            <view class="content">{{item.content}}</view>
+          </view>
+          <!-- 图片开始 -->
+          <view class="img_container" wx:if="{{item.imgOrVideoFlag === 1}}">
+            <image class="img_1" bindtap="previewImage" data-images="{{item.imageList}}" data-index='{{img_index}}' style=" height: 200rpx;" wx:if="{{item.imageList.length <= 2}}" wx:for="{{item.imageList}}" wx:key="*this" wx:for-item="img_item" wx:for-index="img_index" mode="aspectFill" src="{{img_item}}"></image>
+            <image class="img_2" bindtap="previewImage" data-images="{{item.imageList}}" data-index='{{img_index}}' style=" height: 200rpx;" wx:if="{{item.imageList.length >= 3 && img_index <= 2}}" wx:for="{{item.imageList}}" wx:key="*this" wx:for-item="img_item" wx:for-index="img_index" mode="aspectFill" src="{{img_item}}"></image>
+          </view>
+          <!-- 图片结束 -->
+          <!-- 视频开始 -->
+          <view class="video_container" wx:if="{{item.imgOrVideoFlag === -1}}">
+            <video src="{{item.videoUrl}}" object-fit="cover"></video>
+          </view>
+          <!-- 视频结束 -->
+          <!-- 点击栏开始 -->
+          <view class="tip" bindtap="hitArticle" data-id="{{item._id}}">
+            <!-- 分享开始 -->
+            <view class="item_container">
+              <image mode="heightFix" src="../../image/hit_share.png"></image>
+              <view class="word">分享</view>
+            </view>
+            <view class="item_container">
+              <image mode="heightFix" src="../../image/hit_comment.png"></image>
+              <view class="word">评论</view>
+            </view>
+            <view class="item_container">
+              <image mode="heightFix" src="../../image/hit_like.png"></image>
+              <view class="word">{{item.likeNum}}</view>
+            </view>
+            <!-- 分享结束 -->
+          </view>
+          <!-- 点击栏结束 -->
+        </view>
+        <!-- 每一项文章结束 -->
+      </view>
+      <!-- 帖子容器结束 -->
+    </block>
+    <!-- 3.推荐 -->
+    <block wx:elif="{{tabList[2].isActive}}">
+      <view wx:if="{{recommendArticleList.length === 0}}" style="width:100%; height:100%; display:flex; flex-wrap:wrap; justify-content: center;align-items: center;">
+        <image mode="widthFix" src="../../image/noData.jpeg" style="width:50%;"></image>
+        <view style=" margin-top:30rpx;width:100%;height:100rpx; display:flex; justify-content: center;align-items: center; font-size:40rpx; font-weight: bolder; color:#ccc;">
+          暂无数据
+        </view>
+      </view>
+      <!-- 帖子容器开始 -->
+      <view class="container">
+        <!-- 每一项文章开始 -->
+        <view class="article_item" wx:for="{{recommendArticleList}}" wx:key="_id">
+          <!-- 分隔栏开始 -->
+          <view class="lan" style="width:100vw; height:15rpx; background-color: #F5F5F5;"></view>
+          <!-- 分隔栏结束 -->
+          <view bindtap="hitArticle" data-id="{{item._id}}">
+            <!-- 信息容器开始 -->
+            <view class="info_container">
+              <!-- 头像容器开始 -->
+              <view class="user_img_container">
+                <image mode="heightFix" src="{{item.publisherImageUrl}}"></image>
+              </view>
+              <!-- 头像容器结束 -->
+              <!-- 名字、时间容器开始 -->
+              <view class="user_container">
+                <!-- 用户名称 -->
+                <view class="user_name">{{item.publisherName}}</view>
+                <!-- 发布时间 -->
+                <view class="time">{{item.time}}</view>
+              </view>
+              <!-- 名字、时间容器结束 -->
+            </view>
+            <!-- 信息容器结束 -->
+            <view class="content">{{item.content}}</view>
+          </view>
+          <!-- 图片开始 -->
+          <view class="img_container" wx:if="{{item.imgOrVideoFlag === 1}}">
+            <image class="img_1" bindtap="previewImage" data-images="{{item.imageList}}" data-index='{{img_index}}' style=" height: 200rpx;" wx:if="{{item.imageList.length <= 2}}" wx:for="{{item.imageList}}" wx:key="*this" wx:for-item="img_item" wx:for-index="img_index" mode="aspectFill" src="{{img_item}}"></image>
+            <image class="img_2" bindtap="previewImage" data-images="{{item.imageList}}" data-index='{{img_index}}' style=" height: 200rpx;" wx:if="{{item.imageList.length >= 3 && img_index <= 2}}" wx:for="{{item.imageList}}" wx:key="*this" wx:for-item="img_item" wx:for-index="img_index" mode="aspectFill" src="{{img_item}}"></image>
+          </view>
+          <!-- 图片结束 -->
+          <!-- 视频开始 -->
+          <view class="video_container" wx:if="{{item.imgOrVideoFlag === -1}}">
+            <video src="{{item.videoUrl}}" object-fit="cover"></video>
+          </view>
+          <!-- 视频结束 -->
+          <!-- 点击栏开始 -->
+          <view class="tip" bindtap="hitArticle" data-id="{{item._id}}">
+            <!-- 分享开始 -->
+            <view class="item_container">
+              <image mode="heightFix" src="../../image/hit_share.png"></image>
+              <view class="word">分享</view>
+            </view>
+            <view class="item_container">
+              <image mode="heightFix" src="../../image/hit_comment.png"></image>
+              <view class="word">评论</view>
+            </view>
+            <view class="item_container">
+              <image mode="heightFix" src="../../image/hit_like.png"></image>
+              <view class="word">{{item.likeNum}}</view>
+            </view>
+            <!-- 分享结束 -->
+          </view>
+          <!-- 点击栏结束 -->
+        </view>
+        <!-- 每一项文章结束 -->
+      </view>
+      <!-- 帖子容器结束 -->
+    </block>
+  </Tabs>
+  <!-- 分类栏结束 -->
+  <!-- 假页面开始 -->
+  <view class="fake" wx:if="{{!isReal}}">
+    <!-- 资源的容器开始 -->
+    <view class="resource_cantainer">
+      <!-- 试卷或者电子书的单个资源开始 -->
+      <view class="resource_item" wx:for="{{resource}}" wx:key="_id" bindtap="hitFile" data-cloudpath="{{item.fileCloudPath}}" data-id="{{item._id}}" data-scanNum="{{item.scanNum}}">
+        <view class="left">
+          <image mode="widthFix" wx:if="{{item.fileType===0||item.fileType===1}}" src="../../image/WORD.png"></image>
+          <image mode="widthFix" wx:elif="{{item.fileType===2}}" src="../../image/PDF.png"></image>
+          <image mode="widthFix" wx:elif="{{item.fileType===3||item.fileType===4}}" src="../../image/PPT.png"></image>
+          <image mode="widthFix" wx:elif="{{item.fileType===5||item.fileType===6}}" src="../../image/XLS.png"></image>
+        </view>
+        <view class="right">
+          <!-- 规范输出的文件名长度 -->
+          <text class="item_name">{{item.fileName}}</text>
+          <view class="item_size">{{item.sizeString}}</view>
+          <view class="show">
+            <view class="scan">
+              <image src="../../image/scan.png" mode="heightFix"></image>
+              <view class="num">{{item.scanNum}}</view>
+            </view>
+            <view class="time">
+              <image src="../../image/time.png" mode="heightFix"></image>
+              <view class="num">{{item.time}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <!-- 试卷或者电子书的单个资源结束 -->
+    </view>
+    <!-- 资源的容器结束 -->
+  </view>
+  <!-- 假页面结束 -->
+</view>

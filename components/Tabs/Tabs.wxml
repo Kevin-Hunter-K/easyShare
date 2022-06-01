@@ -1,0 +1,12 @@
+<view class="Tabs">
+  <view class="Tabs_title">
+    <view class="title_item {{item.isActive?'active':''}}" wx:for="{{tabList}}" wx:key="id" bindtap="handItemTap"
+      data-index="{{index}}">
+      {{item.title}}
+    </view>
+  </view>
+  <view class="Tabs_content">
+    <!-- 插槽  放置从父组件中插入的内容-->
+    <slot></slot>
+  </view>
+</view>

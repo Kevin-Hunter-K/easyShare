@@ -1,0 +1,70 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/publish/publish",
+    "pages/publish_text/publish_text",
+    "pages/publish_image/publish_image",
+    "pages/publish_video/publish_video",
+    "pages/publish_resource/publish_resource", 
+    "pages/resource/resource",
+    "pages/articleDetail/articleDetail",
+    "pages/my/my",
+    "pages/social/social", 
+    "pages/search/search", 
+    "pages/about_us/about_us" , 
+    "pages/user_agreement/user_agreement",
+    "pages/user_collection/user_collection",  
+    "pages/user_footstep/user_footstep",
+    "pages/user_share/user_share",
+    "pages/admin/admin",
+    "pages/check_article/check_article",
+    "pages/check_comment/check_comment",
+    "pages/check_resource/check_resource"
+  ],    
+  "tabBar": {  
+    "color": "#515151",
+    "selectedColor": "#000000",
+    "borderStyle": "black",
+    "backgroundColor": "#FFFFFF",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "/tabBarIcon/home.png",
+        "selectedIconPath": "/tabBarIcon/home_ed.png"
+      },
+      {
+        "pagePath": "pages/social/social",
+        "text": "广场",
+        "iconPath": "/tabBarIcon/social.png",
+        "selectedIconPath": "/tabBarIcon/social_ed.png"
+      },
+      {
+        "pagePath": "pages/publish/publish",
+        "text": "发布",
+        "iconPath": "/tabBarIcon/publish_ed.png",
+        "selectedIconPath": "/tabBarIcon/publish_ed.png"
+      }, 
+      {
+        "pagePath": "pages/resource/resource",
+        "text": "资源",
+        "iconPath": "/tabBarIcon/resource.png",
+        "selectedIconPath": "/tabBarIcon/resource_ed.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "/tabBarIcon/my.png",
+        "selectedIconPath": "/tabBarIcon/my_ed.png"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light", 
+    "navigationBarBackgroundColor": "#fff", 
+    "navigationBarTitleText": "明日校园",
+    "navigationBarTextStyle": "black"
+  }, 
+  "style":"v2",
+  "sitemapLocation": "sitemap.json"
+}

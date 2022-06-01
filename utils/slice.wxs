@@ -1,0 +1,5 @@
+var slice = function (str, length) {
+    if (!str) return '';//返回空字符串
+    return str.length > length ? str.slice(0, length) +'...' : str;//返回根据length处理后的字符串
+}
+module.exports.slice = slice;

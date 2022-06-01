@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "Done": "../../components/Done/Done"
+  },
+  "navigationBarTitleText": ""
+}

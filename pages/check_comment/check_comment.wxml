@@ -1,0 +1,50 @@
+<image class="img" src="../../image/up.png" mode="widthFix" bindtap="up" wx:if="{{isShowUpImage && isReal}}"></image>
+<!-- 评论容器开始 -->
+<view class="container" wx:if="{{isReal}}">
+    <view wx:if="{{comment.length === 0}}" style="width:100%; height:100%; display:flex; flex-wrap:wrap; justify-content: center;align-items: center;">
+        <image mode="widthFix" src="../../image/noData.jpeg" style="width:50%;"></image>
+        <view style=" margin-top:30rpx;width:100%;height:100rpx; display:flex; justify-content: center;align-items: center; font-size:40rpx; font-weight: bolder; color:#ccc;">
+            暂无数据
+        </view>
+    </view>
+    <!-- 每一项评论开始 -->
+    <view class="article_item" wx:for="{{comment}}" wx:key="_id">
+        <!-- 分隔栏开始 -->
+        <view class="lan" style="width:100vw; height:15rpx; background-color: #F5F5F5;"></view>
+        <!-- 分隔栏结束 -->
+        <view>
+            <!-- 信息容器开始 -->
+            <view class="info_container">
+                <!-- 头像容器开始 -->
+                <view class="user_img_container">
+                    <image mode="heightFix" src="{{item.publisherImageUrl}}"></image>
+                </view>
+                <!-- 头像容器结束 -->
+                <!-- 名字、时间容器开始 -->
+                <view class="user_container">
+                    <!-- 用户名称 -->
+                    <view class="user_name">{{item.publisherName}}</view>
+                    <!-- 发布时间 -->
+                    <view class="time">{{item.time}}</view>
+                </view>
+                <!-- 名字、时间容器结束 -->
+            </view>
+            <!-- 信息容器结束 -->
+            <view class="content">{{item.content}}</view>
+        </view>
+        <!-- 点击栏开始 -->
+        <view class="tip">
+            <view class="item_container" bindtap="hitDealPass" data-id="{{item._id}}" data-ispass="{{true}}">
+                <image mode="heightFix" src="../../image/pass.png"></image>
+                <view class="word">审核通过</view>
+            </view>
+            <view class="item_container" bindtap="hitDealPass" data-id="{{item._id}}" data-ispass="{{false}}">
+                <image mode="heightFix" src="../../image/pass_fail.png"></image>
+                <view class="word">审核不通过</view>
+            </view>
+        </view>
+        <!-- 点击栏结束 --> 
+    </view>
+    <!-- 每一项评论结束 -->
+</view>
+<!-- 评论容器结束 -->

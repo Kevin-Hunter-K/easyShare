@@ -1,0 +1,52 @@
+<image class="img" src="../../image/up.png" mode="widthFix" bindtap="up" wx:if="{{isShowUpImage && isReal}}"></image>
+<!-- 外层容器开始 -->
+<view class="article" wx:if="{{isReal}}">
+    <view wx:if="{{list.length === 0}}" style="width:100%; height:100%; display:flex; flex-wrap:wrap; justify-content: center;align-items: center;">
+        <image mode="widthFix" src="../../image/noData.jpeg" style="width:50%;"></image>
+        <view style=" margin-top:30rpx;width:100%;height:100rpx; display:flex; justify-content: center;align-items: center; font-size:40rpx; font-weight: bolder; color:#ccc;">
+            暂无数据
+        </view>
+    </view>
+    <!-- 每一项文章开始 -->
+    <view class="article_item" wx:for="{{list}}" wx:key="_id" bindtap="hitArticle" data-id="{{item._id}}">
+        <!-- 左侧容器开始 -->
+        <view class="left">
+            <view class="img_cantainer">
+                <image src="{{item.publisherImageUrl}}" mode="heightFix"></image>
+            </view>
+            <view class="publisher_name">{{tools.slice(item.publisherName,11)}}</view>
+        </view>
+        <!-- 左侧容器结束 -->
+        <!-- 右侧容器开始 -->
+        <view class="right">
+            <!-- 帖子标题开始 -->
+            <view class="article_title">{{leftMenu[item.class]}} {{item.title}}</view>
+            <!-- 帖子标题结束 -->
+            <!-- 帖子信息展示开始 -->
+            <view class="show">
+                <!-- 点赞量开始 -->
+                <view class="like">
+                    <image src="../../image/like.png" mode="heightFix"></image>
+                    <view class="num">{{item.likeNum}}</view>
+                </view>
+                <!-- 点赞量结束 -->
+                <!-- 阅读量开始 -->
+                <view class="scan">
+                    <image src="../../image/scan.png" mode="heightFix"></image>
+                    <view class="num">{{item.scanNum}}</view>
+                </view>
+                <!-- 阅读量结束 -->
+                <!-- 时间开始 -->
+                <view class="time">
+                    <image src="../../image/time.png" mode="heightFix"></image>
+                    <view class="num">{{item.time}}</view>
+                </view>
+                <!-- 时间结束 -->
+            </view>
+            <!-- 帖子信息展示结束 -->
+        </view>
+        <!-- 右侧容器结束 -->
+    </view>
+    <!-- 每一项文章结束 -->
+</view>
+<!-- 外层容器结束 -->

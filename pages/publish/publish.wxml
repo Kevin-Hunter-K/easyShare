@@ -1,0 +1,46 @@
+<!-- 真页面 -->
+<view class="page" wx:if="{{isReal}}">
+  <!-- 第一个和第二个图标的容器 -->
+  <view class="item">
+    <!-- 第一个图标和标题的容器 -->
+    <view class="item_container">
+      <navigator url="../publish_text/publish_text">
+        <image mode="widthFix" src="../../image/text.png"></image>
+        <view class="item_title">发文字</view>
+      </navigator>
+    </view>
+    <!-- 第二个图标和标题的容器 -->
+    <view class="item_container">
+      <navigator url="../publish_image/publish_image">
+        <image mode="widthFix" src="../../image/image.png"></image>
+        <view class="item_title">发图片</view>
+      </navigator>
+    </view>
+  </view>
+  <!-- 第三个和第四个图标的容器 -->
+  <view class="item">
+    <!-- 第三个图标和标题的容器 ../publish_ask/publish_ask -->
+    <view class="item_container">
+      <navigator url="../publish_video/publish_video">
+        <image mode="widthFix" src="../../image/video.png"></image>
+        <view class="item_title">发视频</view>
+      </navigator>
+    </view>
+    <!-- 第四个图标和标题的容器 ../publish_ask/publish_ask -->
+    <view class="item_container">
+      <navigator url="../publish_resource/publish_resource">
+        <image mode="widthFix" src="../../image/resource.png"></image>
+        <view class="item_title">发资源</view>
+      </navigator> 
+    </view>
+  </view>
+  <!-- 底部标题 -->
+  <view class="title">选择发布类型</view>
+</view>
+<!-- 假页面 -->
+<view class="conclude" wx:if="{{!isReal}}">
+  <view class="cantainer" bindtap="hit" wx:for="{{list}}" wx:key="imageUrl" data-index="{{index}}">
+    <image class="cont" src="{{item.imageUrl}}"></image>
+    <view class="con">{{item.title}}</view>
+  </view>
+</view>

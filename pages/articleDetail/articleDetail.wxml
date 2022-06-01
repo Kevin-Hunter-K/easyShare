@@ -1,0 +1,144 @@
+<wxs src="../../utils/slice.wxs" module="tools" />
+<!-- 帖子标题开始 -->
+<view class="title_cantainer" wx:if="{{isReal}}">
+    <view class="title">{{leftMenu[article.class]}} {{article.title}}</view>
+</view>
+<!-- 帖子标题结束 -->
+<!-- 用户栏开始 -->
+<view class="user_cantainer" wx:if="{{isReal}}">
+    <!-- 图片容器开始 -->
+    <view class="img_cantainer">
+        <!-- 发表者头像 -->
+        <image mode="heightFix" src="{{article.publisherImageUrl}}"></image>
+    </view>
+    <!-- 图片容器结束 -->
+    <!-- 发表人和浏览量和时间信息开始 -->
+    <view class="info_cantainer">
+        <view class="publisher_name">{{tools.slice(article.publisherName,11)}}</view>
+        <view class="scan_info">{{scanAndTime}}</view>
+    </view>
+    <!-- 发表人和浏览量和时间信息结束 -->
+    <!-- 关注开始 -->
+    <button class="attention" bindtap="hitAttention">关注</button>
+    <!-- 关注结束 -->
+    <!-- 投诉按钮开始 -->
+    <view class="complain_container">
+        <button class="complain" open-type="contact">投诉</button>
+        <button class="complain" wx:if="{{openid === article._openid || isAdmin}}" bindtap="hitDeleArticle">
+            删除
+        </button>
+    </view>
+    <!-- 投诉按钮结束 -->
+</view>
+<!-- 用户栏结束 -->
+<!-- 帖子内容开始 -->
+<view class="content" wx:if="{{isReal}}">{{article.content}}</view>
+<view class="img_or_video_cantainer" wx:if="{{article.imgOrVideoFlag && isReal}}">
+    <!-- 判断是否是图片 -->
+    <!-- 图片轮播图开始 -->
+    <swiper wx:if="{{article.imgOrVideoFlag === 1}}" autoplay="true" indicator-dots="true " circular="true" interval="2000">
+        <!-- 每一项轮播图片开始 -->
+        <swiper-item wx:for="{{article.imageList}}" wx:key="*this">
+            <!-- 轮播图片 -->
+            <image mode="aspectFill" src="{{item}}" bindtap="previewImage" data-index='{{index}}'></image>
+        </swiper-item>
+        <!-- 每一项轮播图片结束 -->
+    </swiper>
+    <!-- 图片轮播图结束 -->
+    <!-- 视频容器开始 -->
+    <view wx:if="{{article.imgOrVideoFlag === -1}}" class="video_cantainer">
+        <!-- 视频组件 -->
+        <video src="{{article.videoUrl}}" style="height:100%; width:100%; border-radius: 15rpx;" object-fit="cover"></video>
+    </view>
+    <!-- 视频容器结束 -->
+</view>
+<!-- 帖子内容结束 -->
+<!-- 全部评论字样开始 -->
+<view class="comment_title" wx:if="{{isReal}}">{{comment.length === 0 ? '暂无评论':'全部评论'}}</view>
+<!-- 全部评论字样结束 -->
+<!-- 横线容器开始 -->
+<view class="line_cantainer">
+    <view class="line"></view>
+</view>
+<!-- 横线容器结束 -->
+<!-- 每一项评论开始 -->
+<view class="comment_item" wx:for="{{comment}}" wx:key="_id" wx:if="{{isReal}}">
+    <!-- 左边头像的容器开始 -->
+    <view class="left" style="height:100%;">
+        <view class="img_can">
+            <image mode="heightFix" src="{{item.publisherImageUrl}}"></image>
+        </view>
+    </view>
+    <!-- 左边头像的容器结束 -->
+    <!-- 右边评论的信息容器开始 -->
+    <view class="right">
+        <!-- 评论人的昵称开始 -->
+        <view class="comment_name">{{item.publisherName}}</view>
+        <!-- 评论人的昵称结束 -->
+        <!-- 评论内容的容器开始 -->
+        <view class="comment_content_cantainer">
+            <!-- 评论内容开始 -->
+            <view class="comment_content">{{item.content}}</view>
+            <!-- 评论内容结束 -->
+        </view>
+        <!-- 评论内容的容器结束 -->
+        <!-- 评论时间开始 -->
+        <view class="time">
+            <view class="time_content">{{item.time}}</view>
+            <button class="dele_comment" wx:if="{{item._openid === openid || isAdmin}}" bindtap="hitDeleComment" data-id="{{item._id}}">删除</button>
+        </view>
+        <!-- 评论时间结束 -->
+    </view> 
+    <!-- 点赞开始 -->
+    <view class="like_item">
+        <!-- 点赞图片 -->
+        <view class="img_can" bindtap="hitCommentLike" data-id="{{item._id}}" data-index="{{index}}">
+            <image mode="widthFix" src="{{item.isLike ? icon[2].selectedPath : icon[2].selectPath}}"></image>
+        </view>
+        <!-- 点赞数 -->
+        <view class="num">{{item.likeList.length}}</view>
+    </view>
+    <!-- 点赞结束 -->
+    <!-- 右边评论的信息容器结束 -->
+</view>
+<!-- 每一项评论结束 -->
+<!-- 到底部提醒开始 -->
+<view class="bottom_tip" wx:if="{{isReal}}">
+    <view class="content">-- 到底啦 --</view>
+</view>
+<!-- 到底部提醒结束 -->
+<!-- 发表栏开始 -->
+<view class="tip" wx:if="{{isReal}}">
+    <!-- 发布的按钮容器开始 -->
+    <view class="publish_comment_can" bindtap="writeComment">
+        <!-- 发布的图标 -->
+        <view class="img_can">
+            <image mode="widthFix" src="{{icon[0].selectPath}}"></image>
+        </view>
+        <!-- 提示文字 -->
+        <view class="cont">点击输入评论...</view>
+    </view>
+    <!-- 发布的按钮容器结束 -->
+    <view class="show">
+        <!-- 收藏项开始 -->
+        <view class="item">
+            <image mode="widthFix" bindtap="hitCollection" src="{{isCollection ? icon[1].selectedPath : icon[1].selectPath}}"></image>
+            <view class="num">{{collectionNum}}</view>
+        </view>
+        <!-- 收藏项结束 -->
+        <!-- 点赞项开始 -->
+        <view class="item">
+            <image mode="widthFix" bindtap="hitLike" src="{{isLike ? icon[2].selectedPath : icon[2].selectPath}}"></image>
+            <view class="num">{{likeNum}}</view>
+        </view>
+        <!-- 点赞项结束 -->
+        <!-- 投诉开始 -->
+        <!-- <view class="item">
+            <button open-type="contact">
+                <image mode="widthFix" src="{{icon[3].selectPath}}" bindcontact="complain"></image>
+            </button>
+        </view> -->
+        <!-- 投诉结束 -->
+    </view>
+</view>
+<!-- 发表栏结束 -->

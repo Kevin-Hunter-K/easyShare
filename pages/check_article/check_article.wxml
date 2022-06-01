@@ -1,0 +1,62 @@
+<image class="img" src="../../image/up.png" mode="widthFix" bindtap="up" wx:if="{{isShowUpImage && isReal}}"></image>
+<!-- 帖子容器开始 -->
+<view class="container" wx:if="{{isReal}}">
+    <view wx:if="{{articleList.length === 0}}" style="width:100%; height:100%; display:flex; flex-wrap:wrap; justify-content: center;align-items: center;">
+        <image mode="widthFix" src="../../image/noData.jpeg" style="width:50%;"></image>
+        <view style=" margin-top:30rpx;width:100%;height:100rpx; display:flex; justify-content: center;align-items: center; font-size:40rpx; font-weight: bolder; color:#ccc;">
+            暂无数据
+        </view>
+    </view>
+    <!-- 每一项文章开始 -->
+    <view class="article_item" wx:for="{{articleList}}" wx:key="_id">
+        <!-- 分隔栏开始 -->
+        <view class="lan" style="width:100vw; height:15rpx; background-color: #F5F5F5;"></view>
+        <!-- 分隔栏结束 -->
+        <view>
+            <!-- 信息容器开始 -->
+            <view class="info_container">
+                <!-- 头像容器开始 -->
+                <view class="user_img_container">
+                    <image mode="heightFix" src="{{item.publisherImageUrl}}"></image>
+                </view>
+                <!-- 头像容器结束 -->
+                <!-- 名字、时间容器开始 -->
+                <view class="user_container">
+                    <!-- 用户名称 -->
+                    <view class="user_name">{{item.publisherName}}</view>
+                    <!-- 发布时间 -->
+                    <view class="time">{{item.time}}</view>
+                </view>
+                <!-- 名字、时间容器结束 -->
+            </view>
+            <!-- 信息容器结束 -->
+            <view class="content">标题：{{item.title}}</view>
+            <view class="content">正文：{{item.content}}</view>
+        </view>
+        <!-- 图片开始 -->
+        <view class="img_container" wx:if="{{item.imgOrVideoFlag === 1}}">
+            <image class="img_1" bindtap="previewImage" data-images="{{item.imageList}}" data-index='{{img_index}}' style=" height: 200rpx;" wx:if="{{item.imageList.length <= 2}}" wx:for="{{item.imageList}}" wx:key="*this" wx:for-item="img_item" wx:for-index="img_index" mode="aspectFill" src="{{img_item}}"></image>
+            <image class="img_2" bindtap="previewImage" data-images="{{item.imageList}}" data-index='{{img_index}}' style=" height: 200rpx;" wx:if="{{item.imageList.length >= 3 && img_index <= 2}}" wx:for="{{item.imageList}}" wx:key="*this" wx:for-item="img_item" wx:for-index="img_index" mode="aspectFill" src="{{img_item}}"></image>
+        </view>
+        <!-- 图片结束 -->
+        <!-- 视频开始 -->
+        <view class="video_container" wx:if="{{item.imgOrVideoFlag === -1}}">
+            <video src="{{item.videoUrl}}" object-fit="cover"></video>
+        </view>
+        <!-- 视频结束 -->
+        <!-- 点击栏开始 -->
+        <view class="tip">
+            <view class="item_container" bindtap="hitDealPass" data-id="{{item._id}}" data-ispass="{{true}}">
+                <image mode="heightFix" src="../../image/pass.png"></image>
+                <view class="word">审核通过</view>
+            </view>
+            <view class="item_container" bindtap="hitDealPass" data-id="{{item._id}}" data-ispass="{{false}}">
+                <image mode="heightFix" src="../../image/pass_fail.png"></image>
+                <view class="word">审核不通过</view>
+            </view>
+        </view>
+        <!-- 点击栏结束 -->
+    </view>
+    <!-- 每一项文章结束 -->
+</view>
+<!-- 帖子容器结束 -->

@@ -1,0 +1,19 @@
+.done_cantainer{
+    display: flex;
+    height:100rpx;
+    width:100%;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 10rpx;
+}
+.done_cantainer .done{
+    display: flex;
+    height:100%;
+    width:98%;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color:white;
+    border-radius: 50rpx;
+}

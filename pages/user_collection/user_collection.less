@@ -1,0 +1,162 @@
+.img{
+    width:90rpx;
+    position:fixed;
+    bottom: 30rpx;
+    right:40rpx;
+    z-index: 500;
+  }
+.article {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 0rpx;
+
+    .article_item {
+        display: flex;
+        height: 180rpx;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 2rpx solid #ccc; //底部边框
+
+        // border: 5rpx solid black;
+        // padding: 10rpx;
+        // margin: 10rpx;
+        .left {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            flex: 1;
+            height: 180rpx;
+            // border: 5rpx solid red;
+            // background-color: red;
+
+
+            .img_cantainer {
+                display: flex;
+                height: 100rpx; //由高度决定头像大小
+                margin-bottom: 15rpx;
+
+                image {
+                    border-radius: 50rpx;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            .publisher_name {
+                font-size: 24rpx;
+                display: flex;
+                justify-content: center;
+                // width: 150rpx;
+                // overflow: hidden;
+                // text-overflow: ellipsis;
+                // display: -webkit-box;
+                // -webkit-line-clamp: 1; //规定行数
+                // -webkit-box-orient: vertical;
+
+            }
+        }
+
+        .right {
+            display: flex;
+            flex-direction: column;
+            flex: 3;
+            height: 180rpx;
+            padding: 15rpx;
+            // background-color: aqua;
+            // border: 5rpx solid aquamarine;
+            position: relative;
+
+            .article_title {
+                height: 80rpx; //容纳文本的边框高度
+                font-size: 30rpx; //文字大小
+                width: 70vw;
+
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 2; //规定行数
+                -webkit-box-orient: vertical;
+            }
+
+            .show {
+                position: absolute; //相对父元素位置绝对
+                bottom: 15rpx; //距离底部15rpx
+                right: 15rpx; //距离右边界15rpx
+
+                height: 50rpx;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .like {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 24rpx; //高度20rpx
+
+                    image {
+                        height: 100%;
+                    }
+
+                    // 文字
+                    .num {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        margin-left: 10rpx; //左外边距
+                        color: var(--themecolor);
+                        font-size: 24rpx; //字体大小
+                    }
+                }
+
+                .scan {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 24rpx; //高度20rpx
+                    margin-left: 20rpx;
+
+                    image {
+                        height: 100%;
+                    }
+
+                    // 文字
+                    .num {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        margin-left: 10rpx; //左外边距
+                        color: var(--themecolor);
+                        font-size: 24rpx; //字体大小
+                    }
+                }
+
+                .time {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 24rpx; //高度20rpx
+                    margin-left: 20rpx;
+
+                    image {
+                        height: 100%;
+                    }
+
+                    // 文字
+                    .num {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        margin-left: 10rpx; //左外边距
+                        color: var(--themecolor);
+                        font-size: 24rpx; //字体大小
+                    }
+                }
+            }
+        }
+    }
+}
+

@@ -1,0 +1,153 @@
+page {
+    height: 100%;
+    width: 100%;
+}
+
+.cantainer {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .top {
+        height: 48%;
+        display: flex;
+
+        // background-color: aqua;
+        .left {
+            flex: 3;
+            height: 100%;
+
+            // background-color: cadetblue;
+            .info_cantainer {
+                display: flex;
+
+                .info {
+                    display: flex;
+                    height: 200rpx;
+                    width: 100%;
+                    padding: 40rpx 0 0 40rpx;
+
+                    .img {
+                        border-radius: 50rpx;
+                        height: 120rpx;
+                        width: 120rpx;
+                    }
+
+                    .name {
+                        margin-left: 30rpx;
+                        padding-top: 20rpx;
+                        width: 200rpx;
+                        height: 100%;
+                        font-weight: bolder;
+                        font-size: 26rpx;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 3; //规定行数
+                        -webkit-box-orient: vertical;
+                    }
+
+                    .set {
+                        height: 60rpx;
+                        width: 60rpx;
+                        margin-left: 30rpx;
+                    }
+                }
+
+            }
+
+            .item_cantainer {
+                display: flex;
+                height: 300rpx;
+                width: 100%;
+                justify-content: space-around;
+                align-items: flex-end;
+
+                // font-size: 20rpx;
+                .item {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-end;
+                    height: 100%;
+                    width: 70rpx;
+
+                    .img_can {
+                        // height: 70rpx;
+                        width: 100%;
+
+                        .item_img {
+                            width: 100%;
+                        }
+                    }
+
+                    .img_name_can {
+                        height: 20rpx;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        font-size: 22rpx;
+
+                        margin-top: 15rpx;
+                    }
+
+
+                }
+            }
+        }
+
+        .right {
+            // background-color: chartreuse;
+            flex: 1;
+            height: 80%;
+            display: flex;
+            flex-direction: column;
+
+            .item {
+                height: 50%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                .item_img_cantainer {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    .item_img {
+                        width: 80rpx;
+                    }
+                }
+
+                .item_name {
+                    margin-top: 30rpx;
+                    font-size: 25rpx;
+                    font-weight: bolder;
+                }
+            }
+        }
+    }
+
+    .middle {
+        background-color: red;
+        height: 42%;
+
+    }
+
+
+    .bottom {
+        background-color: bisque;
+        height: 10%;
+    }
+}
+
+
+
+
+
+
+
+
+
+

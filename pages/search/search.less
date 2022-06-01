@@ -1,0 +1,399 @@
+page {
+    width: 100vw;
+    height: 100vh;
+}
+
+.container {
+    // display: flex;
+    // flex-direction: column;
+    width: 100%;
+    height: 100%;
+    // align-items: center;
+
+    .input_container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80rpx;
+        width: 100%;
+        background-color: #fff;
+        padding-left: 20rpx;
+        padding-right: 10rpx;
+
+        input {
+            height: 60rpx;
+            width: ~'calc(100% - 100rpx)';
+            background-color: #DCDCDC;
+            border-radius: 15rpx;
+        }
+
+        .search {
+            display: flex;
+            height: 60rpx;
+            width: 100rpx;
+            justify-content: center;
+            align-items: center;
+            font-size: 24rpx;
+            font-weight: bolder;
+            border-radius: 15rpx;
+            background-color: #DCDCDC;
+            margin-left: 10rpx;
+        }
+    }
+
+    .tip_container {
+        margin-top: 20rpx;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        height: 60rpx;
+        padding-left: 20rpx;
+        padding-right: 20rpx;
+
+        .content_container {
+            display: flex;
+            width: 100%;
+
+            .content {
+                font-size: 30rpx;
+                font-weight: bolder;
+                width: auto;
+            }
+        }
+
+        .clear_container {
+            display: flex;
+            justify-content: flex-end;
+            width: 100%;
+
+            .clear {
+                width: auto;
+                right: 60rpx;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                font-size: 20rpx;
+                // font-weight: bolder;
+            }
+        }
+    }
+
+    .srcoll {
+        margin-top: 5rpx;
+        margin-bottom: 20rpx;
+        width: 100%; //宽度100%
+        height: 60rpx;
+        white-space: nowrap; //不换行
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+
+        .item_container {
+            display: inline-block; //必须设置
+            width: auto;
+            height: 60rpx;
+            padding: 0 20rpx;
+
+            .item {
+                height: 60rpx;
+                width: auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 15rpx;
+                background-color: #F8F8FF; //#F8F8FF
+                font-size: 20rpx;
+                padding: 0 30rpx;
+            }
+        }
+    }
+
+
+}
+
+
+
+.img {
+    width: 90rpx;
+    position: fixed;
+    bottom: 30rpx;
+    right: 40rpx;
+    z-index: 500;
+}
+
+.article {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 0rpx;
+
+    .article_item {
+        display: flex;
+        height: 180rpx;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 2rpx solid #ccc; //底部边框
+
+        // border: 5rpx solid black;
+        // padding: 10rpx;
+        // margin: 10rpx;
+        .left {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            flex: 1;
+            height: 180rpx;
+            // border: 5rpx solid red;
+            // background-color: red;
+
+
+            .img_cantainer {
+                display: flex;
+                height: 100rpx; //由高度决定头像大小
+                margin-bottom: 15rpx;
+
+                image {
+                    border-radius: 50rpx;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            .publisher_name {
+                font-size: 24rpx;
+                display: flex;
+                justify-content: center;
+                // width: 150rpx;
+                // overflow: hidden;
+                // text-overflow: ellipsis;
+                // display: -webkit-box;
+                // -webkit-line-clamp: 1; //规定行数
+                // -webkit-box-orient: vertical;
+
+            }
+        }
+
+        .right {
+            display: flex;
+            flex-direction: column;
+            flex: 3;
+            height: 180rpx;
+            padding: 15rpx;
+            // background-color: aqua;
+            // border: 5rpx solid aquamarine;
+            position: relative;
+
+            .article_title {
+                height: 80rpx; //容纳文本的边框高度
+                font-size: 30rpx; //文字大小
+                width: 70vw;
+
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 2; //规定行数
+                -webkit-box-orient: vertical;
+            }
+
+            .show {
+                position: absolute; //相对父元素位置绝对
+                bottom: 15rpx; //距离底部15rpx
+                right: 15rpx; //距离右边界15rpx
+
+                height: 50rpx;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .like {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 24rpx; //高度20rpx
+
+                    image {
+                        height: 100%;
+                    }
+
+                    // 文字
+                    .num {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        margin-left: 10rpx; //左外边距
+                        color: var(--themecolor);
+                        font-size: 24rpx; //字体大小
+                    }
+                }
+
+                .scan {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 24rpx; //高度20rpx
+                    margin-left: 20rpx;
+
+                    image {
+                        height: 100%;
+                    }
+
+                    // 文字
+                    .num {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        margin-left: 10rpx; //左外边距
+                        color: var(--themecolor);
+                        font-size: 24rpx; //字体大小
+                    }
+                }
+
+                .time {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 24rpx; //高度20rpx
+                    margin-left: 20rpx;
+
+                    image {
+                        height: 100%;
+                    }
+
+                    // 文字
+                    .num {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        margin-left: 10rpx; //左外边距
+                        color: var(--themecolor);
+                        font-size: 24rpx; //字体大小
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
+.resource {
+
+    // 资源容器
+    .resource_cantainer {
+        // display: flex; //伸缩盒子
+        // flex-direction: column; //主轴方向为竖直方向
+        // width: 100%; //宽度继承父元素
+
+        // 资源项
+        .resource_item {
+            display: flex; //伸缩盒子
+            justify-content: center;
+            align-items: center;
+            border-bottom: 2rpx solid #ccc; //底部边框
+            margin: 10rpx 0 0 0; //上外边距 10rpx
+            height: 180rpx; //总高度180rpx
+
+            // 左边图片的容器
+            .left {
+                height: 180rpx; //总高度180rpx
+                flex: 1; //占1/5
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-left: 1%; //左外边距
+                margin-right: 3%; //右外边距
+            }
+
+            //右边资源信息的容器（包括三部分:资源名称、资源类型和大小、资源的浏览量和时间）
+            .right {
+                height: 180rpx; //总高度180rpx
+                flex: 4; //占4/5
+                display: flex;
+                flex-direction: column;
+                width: 100%; //宽度继承父元素
+
+                // 单个资源的名称
+                .item_name {
+                    height: 80rpx; //容纳文本的边框高度
+                    font-size: 30rpx; //文字大小
+                    width: 75vw; //给文本边框设置宽度，需要给文本设置边框，否则会挤占其他布局
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2; //规定行数
+                    -webkit-box-orient: vertical;
+                }
+
+                // 单个资源的类型和大小字符串
+                .item_size {
+                    height: 50rpx; //高度50rpx
+                    font-size: 24rpx; //字体大小
+                    color: var(--themecolor); //颜色
+                    display: flex;
+                    align-items: flex-end; //与侧轴底部对齐
+                }
+
+                // 单个资源的浏览量和上传时间
+                .show {
+                    width: 100%;
+                    height: 50rpx; //高度50rpx
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    // 浏览量容器
+                    .scan {
+                        flex: 2; //占容器的2/7
+                        display: flex;
+                        justify-content: flex-end;
+                        align-items: center;
+                        height: 20rpx; //高度20rpx
+
+                        // 图标
+                        image {
+                            height: 100%; //高度继承父元素，然后mode=“heightFix”
+                        }
+
+                        // 文字
+                        .num {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            margin-left: 10rpx; //左外边距
+                            color: var(--themecolor);
+                            font-size: 24rpx; //字体大小
+                        }
+                    }
+
+                    // 上传时间
+                    .time {
+                        flex: 5; //占容器的5/7
+                        display: flex;
+                        justify-content: flex-end;
+                        padding-right: 30rpx;
+                        align-items: center;
+                        height: 20rpx; //高度20rpx
+
+                        image {
+                            height: 100%; //高度继承父元素，然后mode=“heightFix”
+                        }
+
+                        .num {
+                            display: flex;
+                            margin-left: 10rpx;
+                            justify-content: center;
+                            align-items: center;
+                            color: var(--themecolor);
+                            font-size: 24rpx;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

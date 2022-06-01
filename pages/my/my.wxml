@@ -1,0 +1,90 @@
+<view class="cantainer">
+    <view class="top">
+        <view class="left">
+            <view class="info_cantainer">
+                <view class="info">
+                    <image class="img" mode="widthFix" src="{{imageUrl}}" bindtap="wxLogin"></image>
+                    <view class="name">{{userName}}</view>
+                </view>
+            </view>
+            <!--  -->
+            <view class="item_cantainer" wx:if="{{isReal}}">
+                <view class="item" wx:for="{{list}}" wx:key="name" bindtap="gotoPage" data-index="{{index}}">
+                    <view class="img_can">
+                        <image class="item_img" mode="widthFix" src="{{item.src}}"></image>
+                    </view>
+                    <view class="img_name_can">
+                        <view class="item_name">{{item.name}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <!--  -->
+        <!-- <view class="right" wx:if="{{isReal}}">
+            <view class="item" bindtap="faceLogin">
+                <view class="item_img_cantainer">
+                    <image class="item_img" mode="widthFix" src="../../image/face_login.png"></image>
+                </view>
+                <view class="item_name">人脸识别登录</view>
+            </view>
+            <view class="item" bindtap="faceRegister">
+                <view class="item_img_cantainer">
+                    <image class="item_img" mode="widthFix" src="../../image/face_sign.png"></image>
+                </view>
+                <view class="item_name">人脸识别注册</view>
+            </view>
+        </view> -->
+    </view>
+    <view class="middle">
+        <view class='button_item'>
+            <button open-type="contact" class='contacButton'>
+                <view class='contacButtonView'>
+                    <text class="tip">联系客服</text>
+                    <text class='sign'>></text>
+                </view>
+            </button>
+        </view>
+        <view class='button_item'>
+            <button open-type="feedback" class='contacButton'>
+                <view class='contacButtonView'>
+                    <text class="tip">意见反馈</text>
+                    <text class='sign'>></text>
+                </view>
+            </button>
+        </view>
+        <view class='button_item'>
+            <button bindtap="gotoAboutUs" class='contacButton'>
+                <view class='contacButtonView'>
+                    <text class="tip">关于我们</text>
+                    <text class='sign'>></text>
+                </view>
+            </button>
+        </view>
+        <view class='button_item'>
+            <button bindtap="changeIdentity" class='contacButton'>
+                <view class='contacButtonView'>
+                    <text class="tip">切换身份</text>
+                    <text class='sign'>></text>
+                </view>
+            </button>
+        </view>
+        <!-- <view class='button_item'>
+            <button bindtap="yibanLogin" class='contacButton'>
+                <view class='contacButtonView'>
+                    <text class="tip">易班登录</text>
+                    <text class='sign'>></text>
+                </view>
+            </button>
+        </view> -->
+        <view class='button_item'>
+            <button bindtap="exit" class='contacButton'>
+                <view class='contacButtonView'>
+                    <text class="tip">退出登录</text>
+                    <text class='sign'>></text>
+                </view>
+            </button>
+        </view>
+    </view>
+    <view class="user_aggrement" bindtap="gotoAgreement">用户协议</view>
+    <view class="bottom">@ 2021 - 明日校园</view>
+</view>

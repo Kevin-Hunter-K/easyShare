@@ -1,0 +1,8 @@
+<!-- 写一个搜索框 -->
+<view class="search_input">
+  <!-- 超链接标签 -->
+  <!-- 页面路径 跳转类型 -->
+  <navigator url="{{pageUrl}}" open-type="navigate" style="color:#515151;">
+    搜索
+  </navigator>
+</view>

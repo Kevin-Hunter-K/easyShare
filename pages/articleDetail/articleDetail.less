@@ -1,0 +1,374 @@
+page {
+    height: 100%;
+    width: 100%;
+    // padding: 10rpx;
+}
+
+// 帖子标题容器
+.title_cantainer {
+    width: 100%;
+    padding: 20rpx 10rpx 20rpx 15rpx; //内边距
+
+    // 标题内容
+    .title {
+        font-size: 35rpx; //标题字体大小
+        font-weight: bolder; //粗体
+    }
+}
+
+
+// 发布人的容器
+.user_cantainer {
+    width: 100%; //宽度
+    height: 140rpx; //高度
+    display: flex;
+    align-items: center; //垂直居中
+    position: relative; //让位置相等，方便后面的icon相对绝对定位
+
+    // 发布人的头像容器
+    .img_cantainer {
+        height: 100rpx; //高度
+        margin-left: 20rpx; //左边距
+        margin-right: 20rpx; //右边距
+
+        // 头像
+        image {
+            height: 100%;
+            border-radius: 50%;
+        }
+    }
+
+    // 发布人信息容器
+    .info_cantainer {
+
+        // 发布人昵称
+        .publisher_name {
+            font-size: 32rpx;
+            font-weight: bolder;
+        }
+
+        // 浏览量字符串
+        .scan_info {
+            margin-top: 10rpx; //左上边距
+            color: var(--themecolor);
+            font-size: 24rpx; //字体大小
+        }
+    }
+
+    // 关注
+    .attention {
+        position: absolute; //位置绝对
+        right: 75rpx; //距离右边界
+        top: 20rpx; //距离上边界
+        width: 150rpx; //宽度
+        height: 60rpx; //高度
+        font-size: 20rpx; //字体大小
+        background-color: black; //按钮背景颜色
+        color: white; //字体颜色
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .complain_container {
+        width: 300rpx; //宽度
+        height: 40rpx; //高度
+        position: absolute; //位置绝对
+        right: 0rpx; //距离右边界
+        top: 90rpx; //距离上边界
+        display: flex;
+        justify-content: flex-start;
+        padding: 0;
+        margin: 0;
+
+        // align-items: center;
+        .complain {
+            background-color: white;
+
+            // background-color: black; //按钮背景颜色
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 40rpx;
+            width: 160rpx;
+            font-size: 18rpx;
+            color: var(--themecolor);
+            text-decoration: underline;
+
+        }
+    }
+
+}
+
+// 帖子内容
+.content {
+    margin: 20rpx 0; //上下外边距
+    width: 100%; //宽度
+    font-size: 32rpx;
+    padding: 0 20rpx; //内边距
+}
+
+// 轮播图片或者视频的容器
+.img_or_video_cantainer {
+    width: 750rpx;
+    height: 340rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50rpx 0; //上下的外边距
+
+    // 图片轮播图样式
+    swiper {
+        // 跟实际轮播图图片的宽度一样，防止轮播图照片被截取
+        width: 90%; //控制显示宽度
+        height: 340rpx;
+
+
+        // 图片样式
+        image {
+            // 继承父元素轮播图的宽
+            width: 100%;
+            // 高width自适应
+        }
+    }
+
+    // 视频样式
+    .video_cantainer {
+        width: 90%;
+        height: 340rpx;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        // 高width自适应
+    }
+}
+
+
+// 评论标题
+.comment_title {
+    display: flex;
+    width: 100%;
+    height: 60rpx; //高度
+    padding-left: 30rpx; //左内边距
+    align-items: center;
+    font-size: 32rpx;
+    font-weight: bolder; //粗体
+
+}
+
+// 线条的容器
+.line_cantainer {
+    width: 100%;
+    padding: 0 30rpx; //内边距
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30rpx; //底部外边距
+
+    // 线条
+    .line {
+        width: 100%;
+        border-bottom: 3rpx solid #ccc;
+    }
+}
+
+
+// 评论项
+.comment_item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative; //让位置相等，方便后面的icon相对绝对定位
+    margin-bottom: 40rpx; //帖子上边外边距
+
+    // 左边头像
+    .left {
+        //////////自定义位置（待解决）
+        display: flex;
+        height: 100%;
+        margin: 0 20rpx;
+
+        // 头像容器
+        .img_can {
+            height: 90rpx;
+
+            image {
+                height: 100%;
+                border-radius: 50%;
+            }
+        }
+
+    }
+
+    // 右边容器
+    .right {
+        width: 100%;
+
+        // 评论人的昵称
+        .comment_name {
+            font-size: 28rpx;
+            font-weight: bolder;
+            margin-bottom: 10rpx;
+        }
+
+        // 评论内容的容器
+        .comment_content_cantainer {
+            display: flex;
+            margin-bottom: 15rpx; //底部外边距
+            width: 95%; //评论占的宽度
+
+            // 评论内容
+            .comment_content {
+                font-size: 25rpx;
+                background-color: #F8F8FF; //背景颜色
+                border-radius: 15rpx;
+                padding: 8rpx; //字体容器的内边距
+            }
+        }
+
+        // 时间
+        .time {
+            width:100%;
+            display: flex;
+            position: relative;
+            .time_content{
+                font-size: 22rpx;
+                color: var(--themecolor);
+            }
+            .dele_comment{
+                position: absolute;
+                right: 35rpx;
+                background-color: white;
+                // background-color: black; //按钮背景颜色
+                display: flex;
+                justify-content: flex-end;
+                align-items: flex-end;
+                height: 40rpx;
+                width: 160rpx;
+                font-size: 18rpx;
+                color: var(--themecolor);
+                text-decoration: underline;
+            }
+        }
+    }
+
+    // 点赞项
+    .like_item {
+        height: 35rpx;
+        display: flex;
+        width: 110rpx;
+        position: absolute;
+        right: 5rpx;
+        top: 5rpx;
+
+        // 图片容器
+        .img_can {
+            width: 35rpx; //点赞图标大小
+
+            .image {
+                width: 100%;
+            }
+        }
+
+        // 点赞数
+        .num {
+            margin-left: 10rpx;
+            font-size: 20rpx;
+            color: var(--themecolor);
+        }
+    }
+}
+
+
+// 底部文字提示的容器
+.bottom_tip {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    width: 100%;
+    height: 140rpx;
+
+    // 提示的文字
+    .content {
+        width: 100%;
+        height: 40rpx;
+        display: flex;
+        justify-content: center;
+        font-size: 24rpx;
+        color: #ccc;
+    }
+}
+
+// 评论栏
+.tip {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    height: 80rpx;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    background-color: white;
+    z-index: 300;
+
+    // 点击发布的按钮容器
+    .publish_comment_can {
+        margin-left: 2%;
+        width: 50%;
+        height: 60rpx;
+        display: flex;
+        align-items: center;
+        background-color: #F8F8FF;
+        border-radius: 15rpx;
+
+        // 评论的图标的容器
+        .img_can {
+            margin: 0 15rpx 0 25rpx;
+            display: flex;
+            height: 60rpx;
+            width: 55rpx;
+            display: flex;
+            align-items: center;
+
+            // 评论的图标
+            .image {
+                width: 100%;
+            }
+        }
+
+        // 文字
+        .cont {
+            font-size: 24rpx;
+            color: #515151;
+        }
+    }
+
+    // 右边的功能按钮
+    .show {
+        width: 40%;
+        display: flex;
+        height: 60rpx;
+        flex: 1;
+        align-items: center;
+
+        // 每一项
+        .item {
+            height: 60rpx;
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            image {
+                width: 55rpx;
+            }
+
+            .num {
+                margin-left: 10rpx;
+                font-size: 20rpx;
+                color: var(--themecolor);
+            }
+        }
+
+    }
+}

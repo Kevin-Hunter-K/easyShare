@@ -1,0 +1,66 @@
+<view class="cantainer">
+  <image class="img" src="../../image/up.png" mode="widthFix" bindtap="up" wx:if="{{isShowUpImage && isReal}}"></image>
+  <!-- 搜索框结束 -->
+  <!-- 菜单开始 -->
+  <view class="menu">
+    <!-- 左侧菜单栏开始 scroll -->
+    <view class="left_menu" scroll-x="true" scroll-y="true">
+      <view class="left_menu_item {{index===leftIndex?'active':''}}" wx:for="{{leftMenu}}" wx:key="*this" bindtap="hitLeft" data-index="{{index}}">
+        {{item}}
+      </view>
+    </view>
+    <!-- 左侧菜单栏结束 -->
+    <!-- 右侧菜单栏开始 -->
+    <view class="right_menu">
+      <!-- 分类栏开始 -->
+      <view class="type_cantainer">
+        <view class="type_catainer_item {{index===rightIndex?'active':''}}" wx:for="{{rightMenuType}}" wx:key="*this" bindtap="hitRight" data-index="{{index}}">
+          {{item}}
+        </view>
+      </view>
+      <!-- 分类栏结束 -->
+      <view wx:if="{{list.length === 0}}" style="width:100%;  display:flex; flex-wrap:wrap; justify-content: center;align-items: center;">
+        <image mode="widthFix" src="../../image/noData.jpeg" style="width:50%;"></image>
+        <view style=" margin-top:30rpx;width:100%;height:100rpx; display:flex; justify-content: center;align-items: center; font-size:40rpx; font-weight: bolder; color:#ccc;">
+          暂无数据
+        </view>
+      </view>
+      <!-- 资源的容器开始 -->
+      <scroll-view class="resource_cantainer" wx:if="{{list.length > 0}}" scroll-with-animation="true" scroll-y="true" enhanced="true" bindscroll="srcollPrograss" scroll-top="{{scrollTop}}" refresher-enabled="true" bindscrolltolower="hitBottom" bindrefresherrefresh="pullDownRefresh" refresher-triggered="{{triggered}}">
+        <!-- 试卷或者电子书的单个资源开始 -->
+        <view class="resource_item" wx:for="{{list}}" wx:key="_id" bindtap="hitFile" data-cloudpath="{{item.fileCloudPath}}" data-id="{{item._id}}" data-scanNum="{{item.scanNum}}">
+          <view class="left">
+            <image mode="widthFix" wx:if="{{item.fileType===0||item.fileType===1}}" src="../../image/WORD.png"></image>
+            <image mode="widthFix" wx:elif="{{item.fileType===2}}" src="../../image/PDF.png"></image>
+            <image mode="widthFix" wx:elif="{{item.fileType===3||item.fileType===4}}" src="../../image/PPT.png"></image>
+            <image mode="widthFix" wx:elif="{{item.fileType===5||item.fileType===6}}" src="../../image/XLS.png"></image>
+          </view>
+          <view class="right">
+            <!-- 规范输出的文件名长度 -->
+            <text class="item_name">{{item.fileName}}</text>
+            <view class="item_size">
+              {{item.sizeString}}
+              <button class="dele_comment" catchtap="hitDeleResource" wx:if="{{isAdmin}}" data-id="{{item._id}}" data-filepath="{{item.fileCloudPath}}">
+                删除
+              </button>
+            </view>
+            <view class="show">
+              <view class="scan">
+                <image src="../../image/scan.png" mode="heightFix"></image>
+                <view class="num">{{item.scanNum}}</view>
+              </view>
+              <view class="time">
+                <image src="../../image/time.png" mode="heightFix"></image>
+                <view class="num">{{item.time}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <!-- 试卷或者电子书的单个资源结束 -->
+      </scroll-view>
+      <!-- 资源的容器结束 -->
+    </view>
+    <!-- 右侧菜单栏结束 -->
+  </view>
+  <!-- 菜单结束 -->
+</view>

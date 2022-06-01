@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "Search":"../../components/Search/Search"
+  },
+  "navigationBarBackgroundColor": "#F8F8FF",
+  "navigationBarTitleText": "资源"
+}

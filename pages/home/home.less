@@ -1,0 +1,279 @@
+page {
+  height: 100%;
+  width: 100%;
+}
+
+.cantainer {
+  height: 100%;
+  width: 100%;
+
+  .img {
+    width: 90rpx;
+    position: fixed;
+    bottom: 30rpx;
+    right: 40rpx;
+    z-index: 400;
+  }
+
+  // 轮播图标签样式
+  .index_swiper {
+    swiper {
+      // 跟实际轮播图图片的宽度一样，防止轮播图照片被截取
+      width: 750rpx;
+      height: 340rpx;
+
+      .navi {
+        height: 100%;
+        z-index: 300;
+
+        // 图片样式
+        image {
+          // 继承父元素轮播图的宽
+          width: 100%;
+          // 高width自适应
+        }
+      }
+
+    }
+  }
+
+
+  .container {
+    width: 100vw;
+    height: ~'calc(100vh - 80rpx)';
+
+    .article_item {
+      display: flex;
+      flex-direction: column;
+      width: 100vw;
+      background-color: white;
+
+      .info_container {
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        height: 120rpx;
+
+        .user_img_container {
+          height: 80rpx;
+          display: flex;
+          margin: 0 20rpx 0 25rpx;
+
+          image {
+            border-radius: 40rpx;
+            height: 80rpx;
+          }
+        }
+
+        .user_container {
+          display: flex;
+          flex-direction: column;
+          height: 80rpx;
+          justify-content: space-around;
+
+          .user_name {
+            color: black;
+            // font-weight: bolder;
+            font-size: 32rpx;
+          }
+
+          .time {
+            color: var(--themecolor);
+            font-size: 24rpx; //字体大小
+          }
+        }
+
+      }
+
+      .content {
+        display: block;
+        margin: 20rpx 25rpx 20rpx 25rpx;
+        overflow-wrap: break-word;
+        font-size: 28rpx; //字体大小
+      }
+
+      .img_container {
+        display: flex;
+        width: 100vw;
+        padding: 0 25rpx;
+        margin: 10rpx 0;
+
+        .img_1 {
+          //一张或者两张图片
+          width: ~'calc((100vw - 50rpx) / 2 - 10rpx)';
+          height: 200rpx;
+          border-radius: 15rpx;
+          margin-right: 15rpx;
+        }
+
+        .img_2 {
+          //三张或三张以上图片的样式
+          width: ~'calc((100vw - 50rpx) / 3 - 10rpx)';
+          height: 200rpx;
+          border-radius: 15rpx;
+          margin-right: 15rpx;
+        }
+      }
+
+      .video_container {
+        ////////////////////画视频和对接数据
+        display: flex;
+        width: 100vw;
+        padding: 0 25rpx;
+        margin: 10rpx 0;
+
+        video {
+          width: ~'calc((100vw - 50rpx) / 2 - 10rpx)';
+          height: 200rpx;
+          border-radius: 15rpx;
+        }
+      }
+
+      .tip {
+        display: flex;
+        width: 100vw;
+        height: 80rpx;
+        justify-content: space-around;
+
+        .item_container {
+          display: flex;
+          height: 80rpx;
+          width: ~'calc((100vw - 50rpx) / 3)';
+          align-items: center;
+          justify-content: center;
+
+          image {
+            height: 40rpx;
+            margin-right: 20rpx;
+          }
+
+          .word {
+            height: 40rpx;
+            font-size: 28rpx; //字体大小
+          }
+        }
+      }
+    }
+  }
+
+
+
+
+  .fake {
+
+    // 资源容器
+    .resource_cantainer {
+      display: flex; //伸缩盒子
+      flex-direction: column; //主轴方向为竖直方向
+      width: 100%; //宽度继承父元素
+
+      // 资源项
+      .resource_item {
+        display: flex; //伸缩盒子
+        justify-content: center;
+        align-items: center;
+        border-bottom: 2rpx solid #ccc; //底部边框
+        margin: 10rpx 0 0 0; //上外边距 10rpx
+        height: 180rpx; //总高度180rpx
+
+        // 左边图片的容器
+        .left {
+          height: 180rpx; //总高度180rpx
+          flex: 1; //占1/5
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-left: 1%; //左外边距
+          margin-right: 3%; //右外边距
+        }
+
+        //右边资源信息的容器（包括三部分:资源名称、资源类型和大小、资源的浏览量和时间）
+        .right {
+          height: 180rpx; //总高度180rpx
+          flex: 4; //占4/5
+          display: flex;
+          flex-direction: column;
+          width: 100%; //宽度继承父元素
+
+          // 单个资源的名称
+          .item_name {
+            height: 80rpx; //容纳文本的边框高度
+            font-size: 30rpx; //文字大小
+            width: 75vw; //给文本边框设置宽度，需要给文本设置边框，否则会挤占其他布局
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2; //规定行数
+            -webkit-box-orient: vertical;
+          }
+
+          // 单个资源的类型和大小字符串
+          .item_size {
+            height: 50rpx; //高度50rpx
+            font-size: 24rpx; //字体大小
+            color: var(--themecolor); //颜色
+            display: flex;
+            align-items: flex-end; //与侧轴底部对齐
+          }
+
+          // 单个资源的浏览量和上传时间
+          .show {
+            width: 100%;
+            height: 50rpx; //高度50rpx
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            // 浏览量容器
+            .scan {
+              flex: 2; //占容器的2/7
+              display: flex;
+              justify-content: flex-end;
+              align-items: center;
+              height: 20rpx; //高度20rpx
+
+              // 图标
+              image {
+                height: 100%; //高度继承父元素，然后mode=“heightFix”
+              }
+
+              // 文字
+              .num {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-left: 10rpx; //左外边距
+                color: var(--themecolor);
+                font-size: 24rpx; //字体大小
+              }
+            }
+
+            // 上传时间
+            .time {
+              flex: 5; //占容器的5/7
+              display: flex;
+              justify-content: flex-end;
+              padding-right: 30rpx;
+              align-items: center;
+              height: 20rpx; //高度20rpx
+
+              image {
+                height: 100%; //高度继承父元素，然后mode=“heightFix”
+              }
+
+              .num {
+                display: flex;
+                margin-left: 10rpx;
+                justify-content: center;
+                align-items: center;
+                color: var(--themecolor);
+                font-size: 24rpx;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+}

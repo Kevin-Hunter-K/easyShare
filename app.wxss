@@ -1,0 +1,25 @@
+/* 全局变量 */
+page {
+  /* 定义主题颜色变量 */
+  --themecolor: #7c7c7c;
+  /* 定义字体大小 */
+  font-size: 28rpx;
+}
+
+/* 初始化标签样式，对全局的各类标签样式进行定义 */
+page,
+view,
+text,
+swiper,
+swiper-item,
+image,
+navigator {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* 定义全局的图片大小 */
+image {
+  width: 100%;
+}

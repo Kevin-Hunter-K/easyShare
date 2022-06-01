@@ -1,0 +1,124 @@
+.img {
+  width: 90rpx;
+  position: fixed;
+  bottom: 30rpx;
+  right: 40rpx;
+  z-index: 500;
+}
+.article {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 0rpx;
+}
+.article .article_item {
+  display: flex;
+  height: 180rpx;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2rpx solid #ccc;
+}
+.article .article_item .left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex: 1;
+  height: 180rpx;
+}
+.article .article_item .left .img_cantainer {
+  display: flex;
+  height: 100rpx;
+  margin-bottom: 15rpx;
+}
+.article .article_item .left .img_cantainer image {
+  border-radius: 50rpx;
+  width: 100%;
+  height: 100%;
+}
+.article .article_item .left .publisher_name {
+  font-size: 24rpx;
+  display: flex;
+  justify-content: center;
+}
+.article .article_item .right {
+  display: flex;
+  flex-direction: column;
+  flex: 3;
+  height: 180rpx;
+  padding: 15rpx;
+  position: relative;
+}
+.article .article_item .right .article_title {
+  height: 80rpx;
+  font-size: 30rpx;
+  width: 70vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.article .article_item .right .show {
+  position: absolute;
+  bottom: 15rpx;
+  right: 15rpx;
+  height: 50rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.article .article_item .right .show .like {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 24rpx;
+}
+.article .article_item .right .show .like image {
+  height: 100%;
+}
+.article .article_item .right .show .like .num {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10rpx;
+  color: var(--themecolor);
+  font-size: 24rpx;
+}
+.article .article_item .right .show .scan {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 24rpx;
+  margin-left: 20rpx;
+}
+.article .article_item .right .show .scan image {
+  height: 100%;
+}
+.article .article_item .right .show .scan .num {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10rpx;
+  color: var(--themecolor);
+  font-size: 24rpx;
+}
+.article .article_item .right .show .time {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 24rpx;
+  margin-left: 20rpx;
+}
+.article .article_item .right .show .time image {
+  height: 100%;
+}
+.article .article_item .right .show .time .num {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10rpx;
+  color: var(--themecolor);
+  font-size: 24rpx;
+}

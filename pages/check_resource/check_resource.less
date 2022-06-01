@@ -1,0 +1,116 @@
+    // 资源容器
+    .resource_cantainer {
+        width: 100%; //宽度继承父元素
+
+        // 资源项
+        .resource_item {
+            display: flex; //伸缩盒子
+            justify-content: center;
+            align-items: center;
+            // border-bottom: 2rpx solid #ccc; //底部边框
+            margin-left: 10rpx; //上外边距 10rpx
+            height: 180rpx; //总高度180rpx
+
+            // 左边图片的容器
+            .left {
+                height: 180rpx; //总高度180rpx
+                flex: 1; //占1/5
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-left: 1%; //左外边距
+                margin-right: 3%; //右外边距
+            }
+
+            //右边资源信息的容器（包括三部分:资源名称、资源类型和大小、资源的浏览量和时间）
+            .right {
+                height: 180rpx; //总高度180rpx
+                flex: 4; //占4/5
+                display: flex;
+                flex-direction: column;
+                width: 100%; //宽度继承父元素
+                margin-top: 20rpx;
+                // 单个资源的名称
+                .item_name {
+                    height: 80rpx; //容纳文本的边框高度
+                    font-size: 30rpx; //文字大小
+                    width: 75vw; //给文本边框设置宽度，需要给文本设置边框，否则会挤占其他布局
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2; //规定行数
+                    -webkit-box-orient: vertical;
+                }
+
+                // 单个资源的类型和大小字符串
+                .item_size {
+                    height: 50rpx; //高度50rpx
+                    font-size: 24rpx; //字体大小
+                    color: var(--themecolor); //颜色
+                    display: flex;
+                    align-items: flex-end; //与侧轴底部对齐
+                }
+
+                // 单个资源的浏览量和上传时间
+                .show {
+                    width: 100%;
+                    height: 50rpx; //高度50rpx
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    // 上传时间
+                    .time {
+                        flex: 5; //占容器的5/7
+                        display: flex;
+                        justify-content: flex-start;
+                        padding-right: 30rpx;
+                        align-items: center;
+                        height: 20rpx; //高度20rpx
+
+                        image {
+                            height: 100%; //高度继承父元素，然后mode=“heightFix”
+                        }
+
+                        .num {
+                            display: flex;
+                            margin-left: 10rpx;
+                            justify-content: center;
+                            align-items: center;
+                            color: var(--themecolor);
+                            font-size: 24rpx;
+                        }
+                    }
+                }
+            }
+        }
+
+        .tip {
+            display: flex;
+            width: 100vw;
+            height: 80rpx;
+            justify-content: space-around;
+
+            .item_container {
+                display: flex;
+                height: 80rpx;
+                width: ~'calc((100vw - 50rpx) / 3)';
+                align-items: center;
+                justify-content: center;
+
+                image {
+                    height: 50rpx;
+                    margin-right: 20rpx;
+                }
+
+                .word {
+                    height: 50rpx;
+                    display: flex; 
+                    align-items: center;
+                    font-weight: bolder;
+                    height: 50rpx;
+                    font-size: 30rpx; //字体大小
+                }
+            }
+        }
+    }
