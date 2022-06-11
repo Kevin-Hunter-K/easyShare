@@ -151,9 +151,9 @@ Page({
     }
 
     const url = res.currentTarget.dataset.url;
-    console.log("点击轮播图片要跳转的地址-->", url);
+    console.log("点击轮播图片要跳转的文章id-->", url);
     wx.navigateTo({
-      url: url,
+      url: '../articleDetail/articleDetail?_id=' + url
     })
   },
 
@@ -264,8 +264,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   async onLoad(options) {
-    if (!app.globalData.isReal) { 
-      
+    if (!app.globalData.isReal) {
+
       // 加载版本信息
       await wx.cloud.database().collection('deal')
         .get()
