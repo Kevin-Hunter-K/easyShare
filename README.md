@@ -1,4 +1,5 @@
 # 校园论坛和资源共享小程序
+gitee项目地址：[https://gitee.com/Kevin_Hunter/easyShare](https://gitee.com/Kevin_Hunter/easyShare)
 
 ## 一、介绍
 1. 微信小程序，论坛小程序，BBS小程序，文件上传下载小程序。
