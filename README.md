@@ -71,7 +71,11 @@ CSDN博客地址：[https://blog.csdn.net/Hunter_Kevin/article/details/125240533
 ### 6、修改app.js中的初始化云环境
 ![输入图片说明](uploadReadmeImage/20220614142940.jpg)
 
-### 7、至此，小程序可以正常运行
+### 7、上传部署云函数
+
+![输入图片说明](uploadReadmeImage/20220614183210.png)
+
+![输入图片说明](uploadReadmeImage/20220614183252.png)
 
 ### 8、添加管理员账号，管理小程序
 #### 8.1、 添加账号

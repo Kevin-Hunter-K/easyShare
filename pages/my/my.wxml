@@ -86,5 +86,5 @@
         </view>
     </view>
     <view class="user_aggrement" bindtap="gotoAgreement">用户协议</view>
-    <view class="bottom">@ 2021 - 明日校园</view>
+    <view class="bottom">@ 2021 - 易享小程序</view>
 </view>
