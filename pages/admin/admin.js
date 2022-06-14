@@ -16,6 +16,7 @@ Page({
     isArticlePass: false,
     isCommentPass: false,
     isResourcePass: false,
+    versionId:'',
   },
 
   // 跳转到帖子审核页面
@@ -37,7 +38,7 @@ Page({
     })
   },
 
-
+  
 
 
   getID(res) {
@@ -81,7 +82,7 @@ Page({
   updateIsReal() {
     return new Promise((resolve, reject) => {
       wx.cloud.database().collection('deal')
-        .doc('18ed0968618138ee030e2ffa7aa12ff0')
+        .doc(this.data.versionId)
         .update({
           data: {
             isReal: this.data.isReal
@@ -109,7 +110,7 @@ Page({
   updateIsDeleCaChe() {
     return new Promise((resolve, reject) => {
       wx.cloud.database().collection('deal')
-        .doc('18ed0968618138ee030e2ffa7aa12ff0')
+        .doc(this.data.versionId)
         .update({
           data: {
             isDeleCaChe: this.data.isDeleCaChe
@@ -139,7 +140,7 @@ Page({
   updateIsDeleAdminCaChe() {
     return new Promise((resolve, reject) => {
       wx.cloud.database().collection('deal')
-        .doc('18ed0968618138ee030e2ffa7aa12ff0')
+        .doc(this.data.versionId)
         .update({
           data: {
             isDeleAdminCaChe: this.data.isDeleAdminCaChe
@@ -166,7 +167,7 @@ Page({
   updateIsArticlePass() {
     return new Promise((resolve, reject) => {
       wx.cloud.database().collection('deal')
-        .doc('18ed0968618138ee030e2ffa7aa12ff0')
+        .doc(this.data.versionId)
         .update({
           data: {
             isArticlePass: this.data.isArticlePass
@@ -193,7 +194,7 @@ Page({
   updateIsCommentPass() {
     return new Promise((resolve, reject) => {
       wx.cloud.database().collection('deal')
-        .doc('18ed0968618138ee030e2ffa7aa12ff0')
+        .doc(this.data.versionId)
         .update({
           data: {
             isCommentPass: this.data.isCommentPass
@@ -220,7 +221,7 @@ Page({
   updateIsResourcePass() {
     return new Promise((resolve, reject) => {
       wx.cloud.database().collection('deal')
-        .doc('18ed0968618138ee030e2ffa7aa12ff0')
+        .doc(this.data.versionId)
         .update({
           data: {
             isResourcePass: this.data.isResourcePass
@@ -392,6 +393,7 @@ Page({
       .then(res => {
         app.globalData.isReal = res.data[0].isReal;
         this.setData({
+          versionId:res.data[0]._id,
           isReal: res.data[0].isReal,
           isDeleCaChe: res.data[0].isDeleCaChe,
           isDeleAdminCaChe: res.data[0].isDeleAdminCaChe,
@@ -401,6 +403,7 @@ Page({
         })
         console.log("版本信息-->", res);
       })
+    console.log("当前版本id-->", this.data.versionId);
     console.log("是否为真实页面-->", this.data.isReal);
     console.log("是否删除普通用户缓存-->", this.data.isDeleCaChe);
     console.log("是否删除管理员登录缓存-->", this.data.isDeleAdminCaChe);
