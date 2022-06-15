@@ -85,29 +85,3 @@ Page({
 
 
 })
-
-    // // 功能按钮
-    // funList: [
-    //   {
-    //     title: '问题提问',
-    //     url: '../publish_ask/publish_ask',
-    //     src: '../../image/ask.png'
-    //   },
-    //   {
-    //     title: '资源分享',
-    //     url: '../publish_resource/publish_resource',
-    //     src: '../../image/resource.png'
-    //   },
-    //   {
-    //     title: '动态分享',
-    //     url: '../publish_ask/publish_ask',
-    //     src: '../../image/share.png'
-    //   },
-    //   {
-    //     title: '经验交流',
-    //     url: '../publish_ask/publish_ask',
-    //     src: '../../image/experience.png'
-    //   }
-
-    // ],
-
